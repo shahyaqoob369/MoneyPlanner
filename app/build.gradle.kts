@@ -53,6 +53,9 @@ dependencies {
     //Material-Icons:
     implementation("androidx.compose.material:material-icons-extended:1.5.0")
 
+    //navigation:
+    implementation("androidx.navigation:navigation-compose:2.7.1")
+
     //_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_//
 
     implementation("androidx.core:core-ktx:1.10.1")
