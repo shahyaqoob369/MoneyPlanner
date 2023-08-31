@@ -4,6 +4,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Divider
@@ -18,14 +19,20 @@ import androidx.compose.ui.unit.dp
 import com.a_code.moneyplanner.R
 
 @Composable
-fun TableRow(label: String, hasArrow: Boolean = false, hasDestructive: Boolean = false) {
+fun TableRow(
+    label: String,
+    modifier: Modifier = Modifier,
+    hasArrow: Boolean = false,
+    hasDestructive: Boolean = false,
+    detail: (@Composable RowScope.() -> Unit)? = null
+) {
     Row(
-        modifier = Modifier
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = modifier
+            .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 10.dp)
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        val textColor = if (hasDestructive) Color.Red else Color.White
+        val textColor = if (hasDestructive) Color.Red else MaterialTheme.colorScheme.background
 
         Text(
             text = label,
@@ -38,12 +45,14 @@ fun TableRow(label: String, hasArrow: Boolean = false, hasDestructive: Boolean =
                 contentDescription = "",
                 tint = Color.LightGray,
                 modifier = Modifier
-                    .clickable { }
             )
         } else {
             Box {}
         }
 
+        if (detail != null) {
+            detail()
+        }
+
     }
-    Divider()
 }

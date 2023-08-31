@@ -23,6 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.a_code.moneyplanner.screens.AddScreen
 import com.a_code.moneyplanner.screens.ExpensesScreen
 import com.a_code.moneyplanner.screens.SettingsScreen
 import com.a_code.moneyplanner.ui.theme.MoneyPlannerTheme
@@ -113,7 +114,7 @@ class MainActivity : ComponentActivity() {
 
                             //No: 4
                             NavigationBarItem(
-                                selected = backStackEntry.value?.destination?.route == "settings",
+                                selected = backStackEntry.value?.destination?.route?.startsWith("settings") ?: false,
                                 onClick = { navController.navigate("settings") },
                                 icon = {
                                     Icon(
@@ -165,7 +166,7 @@ class MainActivity : ComponentActivity() {
                                         .fillMaxSize(),
                                     color = MaterialTheme.colorScheme.background
                                 ) {
-                                    Greeting("add")
+                                    AddScreen(navController = navController)
                                 }
                             }
 
