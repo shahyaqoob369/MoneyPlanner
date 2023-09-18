@@ -16,7 +16,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
@@ -26,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import com.a_code.moneyplanner.screens.AddScreen
 import com.a_code.moneyplanner.screens.ExpensesScreen
 import com.a_code.moneyplanner.screens.SettingsScreen
+import com.a_code.moneyplanner.ui.theme.G_two
 import com.a_code.moneyplanner.ui.theme.MoneyPlannerTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,7 +47,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     bottomBar = {
                         NavigationBar(
-                            containerColor = MaterialTheme.colorScheme.primaryContainer
+                            containerColor = G_two
                             /**
                             if (isSystemInDarkTheme()) {
                             Color.White
@@ -57,16 +61,17 @@ class MainActivity : ComponentActivity() {
                                 onClick = { navController.navigate("expenses") },
                                 icon = {
                                     Icon(
-                                        painterResource(id = R.drawable.upload_expense),
+                                        painterResource(id = R.drawable.upload_icon2),
                                         contentDescription = "",
-                                        tint = MaterialTheme.colorScheme.onBackground
+                                        tint = Color.White
                                     )
                                 },
                                 label = {
                                     Text(
                                         text = "Expenses",
-                                        color = MaterialTheme.colorScheme.onBackground,
-                                        fontWeight = FontWeight.Bold
+                                        color = Color.White,
+                                        fontWeight = FontWeight.Bold,
+                                        fontFamily = FontFamily(Font(R.font.font_main_regular))
                                     )
                                 }
                             )
@@ -77,16 +82,17 @@ class MainActivity : ComponentActivity() {
                                 onClick = { navController.navigate("reports") },
                                 icon = {
                                     Icon(
-                                        painterResource(id = R.drawable.chart),
+                                        painterResource(id = R.drawable.chartt_2),
                                         contentDescription = "",
-                                        tint = MaterialTheme.colorScheme.onBackground
+                                        tint = Color.White
                                     )
                                 },
                                 label = {
                                     Text(
                                         text = "Reports",
-                                        color = MaterialTheme.colorScheme.onBackground,
-                                        fontWeight = FontWeight.Bold
+                                        color = Color.White,
+                                        fontWeight = FontWeight.Bold,
+                                        fontFamily = FontFamily(Font(R.font.font_main_regular))
                                     )
                                 }
                             )
@@ -97,16 +103,17 @@ class MainActivity : ComponentActivity() {
                                 onClick = { navController.navigate("add") },
                                 icon = {
                                     Icon(
-                                        painterResource(id = R.drawable.add),
+                                        painterResource(id = R.drawable.add_circle_icon),
                                         contentDescription = "",
-                                        tint = MaterialTheme.colorScheme.onBackground
+                                        tint = Color.White
                                     )
                                 },
                                 label = {
                                     Text(
                                         text = "Add",
-                                        color = MaterialTheme.colorScheme.onBackground,
-                                        fontWeight = FontWeight.Bold
+                                        color = Color.White,
+                                        fontWeight = FontWeight.Bold,
+                                        fontFamily = FontFamily(Font(R.font.font_main_regular))
                                     )
                                 }
                             )
@@ -114,20 +121,22 @@ class MainActivity : ComponentActivity() {
 
                             //No: 4
                             NavigationBarItem(
-                                selected = backStackEntry.value?.destination?.route?.startsWith("settings") ?: false,
+                                selected = backStackEntry.value?.destination?.route?.startsWith("settings")
+                                    ?: false,
                                 onClick = { navController.navigate("settings") },
                                 icon = {
                                     Icon(
-                                        painterResource(id = R.drawable.settings),
+                                        painterResource(id = R.drawable.settings_icon2),
                                         contentDescription = "",
-                                        tint = MaterialTheme.colorScheme.onBackground
+                                        tint = Color.White
                                     )
                                 },
                                 label = {
                                     Text(
                                         text = "Settings",
-                                        color = MaterialTheme.colorScheme.onBackground,
-                                        fontWeight = FontWeight.Bold
+                                        color = Color.White,
+                                        fontWeight = FontWeight.Bold,
+                                        fontFamily = FontFamily(Font(R.font.font_main_regular))
                                     )
                                 }
                             )
@@ -177,7 +186,7 @@ class MainActivity : ComponentActivity() {
                                         .fillMaxSize(),
                                     color = MaterialTheme.colorScheme.background
                                 ) {
-                                   SettingsScreen(navController = navController)
+                                    SettingsScreen(navController = navController)
                                 }
                             }
 
